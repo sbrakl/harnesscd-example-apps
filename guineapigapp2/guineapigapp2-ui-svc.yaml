@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: guineapigapp2
+  name: guineapigapp2-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: guineapigapp2-ui
+    kubernetes.io/metadata.name: guineapigapp2-ui

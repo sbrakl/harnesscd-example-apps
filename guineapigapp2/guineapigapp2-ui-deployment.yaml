@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: guineapigapp2
+  name: guineapigapp2-ui
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: guineapigapp2-ui
+      kubernetes.io/metadata.name: guineapigapp2-ui
+  template:
+    metadata:
+      labels:
+        app: guineapigapp2-ui
+        kubernetes.io/metadata.name: guineapigapp2-ui
+    spec:
+      containers:
+      - image: docker.io/shabbirakolawala/guineapigapp2:v1
+        name: guineapigapp2-ui
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 5000
