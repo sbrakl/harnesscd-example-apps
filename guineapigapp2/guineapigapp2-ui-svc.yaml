@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: guineapigapp2-ui-nodeport
   namespace: guineapigapp2
-  name: guineapigapp2-svc
 spec:
-  ports:
-  - port: 80
-    targetPort: 5000
+  type: NodePort
   selector:
     app: guineapigapp2-ui
-    kubernetes.io/metadata.name: guineapigapp2-ui
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 32000
