@@ -15,6 +15,10 @@ spec:
       labels:
         app: guineapigapp2-ui
         kubernetes.io/metadata.name: guineapigapp2-ui
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "5000"
     spec:
       containers:
       - image: docker.io/shabbirakolawala/guineapigapp2:v1
