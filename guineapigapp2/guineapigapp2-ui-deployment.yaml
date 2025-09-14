@@ -4,7 +4,7 @@ metadata:
   namespace: guineapigapp2
   name: guineapigapp2-ui
 spec:
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
